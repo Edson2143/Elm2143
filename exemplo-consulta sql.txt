@@ -1,0 +1,11 @@
+--sql exemplo 1
+SELECT título FROM filme
+         WHERE film_id IN 
+        ( SELECT film_id FROM inventário WHERE inventário_id IN 
+          ( SELECT inventário_id FROM aluguel))
+           E filme_id NOT IN 
+          ( SELECT film_id do inventário WHERE inventário_id IN 
+            ( SELECT inventário_id FROM aluguel WHERE customer_id IN 
+              ( SELECT customer_id FROM cliente WHERE first_name =  " LEE "  AND last_name =  " HAWKS " )));
+
+
